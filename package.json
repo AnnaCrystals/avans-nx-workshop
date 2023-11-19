@@ -2,7 +2,10 @@
   "name": "@avans-nx-workshop/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx b data-api && nx b share-a-meal-web && echo 'Build!'"
+
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
@@ -10,14 +13,18 @@
     "@angular/compiler": "~16.2.0",
     "@angular/core": "~16.2.0",
     "@angular/forms": "~16.2.0",
+    "@angular/localize": "^17.0.2",
     "@angular/platform-browser": "~16.2.0",
     "@angular/platform-browser-dynamic": "~16.2.0",
     "@angular/router": "~16.2.0",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/platform-express": "^10.0.2",
+    "@ng-bootstrap/ng-bootstrap": "^15.1.2",
     "@nx/angular": "17.0.3",
+    "@popperjs/core": "^2.11.8",
     "axios": "^1.0.0",
+    "bootstrap": "^5.3.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "reflect-metadata": "^0.1.13",

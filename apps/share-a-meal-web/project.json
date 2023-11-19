@@ -19,7 +19,9 @@
           "apps/share-a-meal-web/src/favicon.ico",
           "apps/share-a-meal-web/src/assets"
         ],
-        "styles": ["apps/share-a-meal-web/src/styles.css"],
+        "styles": [
+          "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "apps/share-a-meal-web/src/styles.css"],
         "scripts": []
       },
       "configurations": {

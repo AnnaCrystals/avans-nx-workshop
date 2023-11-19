@@ -1,0 +1,12 @@
+<div *ngIf="user$ | async as user; else loading">
+  <h2>{{ user.username }}</h2>
+  <p>Email: {{ user.email }}</p>
+  <!-- Add more details as needed -->
+</div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+
+  
