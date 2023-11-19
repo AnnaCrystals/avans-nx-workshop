@@ -30,20 +30,20 @@ jobs:
       - name: Zip artifacts for deployment
         run: |
           echo ${GITHUB_WORKSPACE}
-          cd data-api/dist/apps/backend-api/ && zip data-api/backend-api-release.zip ./* -r
-          cd share-a-meal-web/dist/apps/frontend-app/ && zip share-a-meal-web/frontend-app-release.zip ./* -r
+          cd data-api/dist/apps/data-api/ && zip data-api/data-api-release.zip ./* -r
+          cd share-a-meal-web/dist/apps/share-a-meal-web/ && zip share-a-meal-web/share-a-meal-web-release.zip ./* -r
 
       - name: Upload frontend-app artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: frontend-app
-          path: frontend-app-release.zip
+          name: share-a-meal-web
+          path: share-a-meal-web-release.zip
           
       - name: Upload backend-api artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: backend-api
-          path: backend-api-release.zip
+          name: data-api
+          path: data-api-release.zip
           
           
   deploy-frontend-app:
@@ -56,10 +56,10 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: frontend-app
+          name: share
 
       - name: Unzip artifact for deployment
-        run: unzip frontend-app-release.zip
+        run: unzip share-a-meal-web-release.zip
         
       - name: Deploy to static azure web app
         id: builddeploy
@@ -84,10 +84,10 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: backend-api
+          name: data-api
 
       - name: Unzip artifact for deployment
-        run: unzip backend-api-release.zip
+        run: unzip data-api-release.zip
 
       - name: Install dependencies
         run: npm install
