@@ -30,6 +30,7 @@ const appRoutes: Routes = [
     path: 'user',
     pathMatch: 'full',
     component: UserListComponent,
+    
   },
 ];
 
