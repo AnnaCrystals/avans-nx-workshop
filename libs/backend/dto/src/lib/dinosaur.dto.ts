@@ -1,5 +1,7 @@
 import {
+    IsDate,
     IsNotEmpty,
+    IsNumber,
     IsString,
 } from 'class-validator';
 import {
@@ -17,6 +19,25 @@ export class CreateDinosaurDto implements ICreateDinosaur {
     @IsNotEmpty()
     dinoname!: string;
 
+    @IsString()
+    @IsNotEmpty()
+    species!: string;
+
+    @IsDate()
+    @IsNotEmpty()
+    dateOfBirth!: Date;
+
+    @IsNumber()
+    @IsNotEmpty()
+    weight!: number;
+
+    @IsNumber()
+    @IsNotEmpty()
+    height!: number;
+
+   @IsString()
+    @IsNotEmpty()
+    dietType!: string;
 }
 
 export class UpsertDinosaurDto implements IUpsertDinosaur {
@@ -28,12 +49,52 @@ export class UpsertDinosaurDto implements IUpsertDinosaur {
     @IsNotEmpty()
     dinoname!: string;
 
+    @IsString()
+    @IsNotEmpty()
+    species!: string;
+
+    @IsDate()
+    @IsNotEmpty()
+    dateOfBirth!: Date;
+
+    @IsNumber()
+    @IsNotEmpty()
+    weight!: number;
+
+    @IsNumber()
+    @IsNotEmpty()
+    height!: number;
+
+   @IsString()
+    @IsNotEmpty()
+    dietType!: string;
+
 }
 
 export class UpdateDinosaurDto implements IUpdateDinosaur {
     @IsString()
     @IsNotEmpty()
     dinoname!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    species!: string;
+
+    @IsDate()
+    @IsNotEmpty()
+    dateOfBirth!: Date;
+
+    @IsNumber()
+    @IsNotEmpty()
+    weight!: number;
+
+    @IsNumber()
+    @IsNotEmpty()
+    height!: number;
+
+   @IsString()
+    @IsNotEmpty()
+    dietType!: string;
 
 
 }

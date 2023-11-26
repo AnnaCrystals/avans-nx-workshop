@@ -1,4 +1,6 @@
 import {
+    IsBoolean,
+    IsDate,
     IsNotEmpty,
     IsString,
 } from 'class-validator';
@@ -17,6 +19,30 @@ export class CreateUserDto implements ICreateUser {
     @IsNotEmpty()
     username!: string;
 
+    @IsString()
+    @IsNotEmpty()
+    email!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    password!: string;
+
+    @IsDate()
+    @IsNotEmpty()
+    dateOfBirth!: Date;
+
+    @IsString()
+    @IsNotEmpty()
+    address!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    occupation!: string;
+
+    @IsBoolean()
+    @IsNotEmpty()
+    isAdmin!: boolean;
+
 
 }
 
@@ -29,6 +55,30 @@ export class UpsertUserDto implements IUpsertUser {
     @IsNotEmpty()
     username!: string;
 
+    @IsString()
+    @IsNotEmpty()
+    email!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    password!: string;
+
+    @IsDate()
+    @IsNotEmpty()
+    dateOfBirth!: Date;
+
+    @IsString()
+    @IsNotEmpty()
+    address!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    occupation!: string;
+
+    @IsBoolean()
+    @IsNotEmpty()
+    isAdmin!: boolean;
+
 
 }
 
@@ -36,6 +86,30 @@ export class UpdateUserDto implements IUpdateUser {
     @IsString()
     @IsNotEmpty()
     username!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    email!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    password!: string;
+
+    @IsDate()
+    @IsNotEmpty()
+    dateOfBirth!: Date;
+
+    @IsString()
+    @IsNotEmpty()
+    address!: string;
+
+    @IsString()
+    @IsNotEmpty()
+    occupation!: string;
+
+    @IsBoolean()
+    @IsNotEmpty()
+    isAdmin!: boolean;
 
 
 }
