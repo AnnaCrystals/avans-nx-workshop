@@ -17,17 +17,7 @@ export class CreateUserDto implements ICreateUser {
     @IsNotEmpty()
     username!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    email!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    password!: string;
-
-    @IsString()
-    @IsNotEmpty()
-    profilePicture!: string;
 }
 
 export class UpsertUserDto implements IUpsertUser {
@@ -39,17 +29,7 @@ export class UpsertUserDto implements IUpsertUser {
     @IsNotEmpty()
     username!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    email!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    password!: string;
-
-    @IsString()
-    @IsNotEmpty()
-    profilePicture!: string;
 }
 
 export class UpdateUserDto implements IUpdateUser {
@@ -57,15 +37,5 @@ export class UpdateUserDto implements IUpdateUser {
     @IsNotEmpty()
     username!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    email!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    password!: string;
-
-    @IsString()
-    @IsNotEmpty()
-    profilePicture!: string;
 }

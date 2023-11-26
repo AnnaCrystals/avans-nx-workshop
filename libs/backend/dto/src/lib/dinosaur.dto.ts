@@ -17,17 +17,6 @@ export class CreateDinosaurDto implements ICreateDinosaur {
     @IsNotEmpty()
     dinoname!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    email!: string;
-
-    @IsString()
-    @IsNotEmpty()
-    password!: string;
-
-    @IsString()
-    @IsNotEmpty()
-    profilePicture!: string;
 }
 
 export class UpsertDinosaurDto implements IUpsertDinosaur {
@@ -39,33 +28,12 @@ export class UpsertDinosaurDto implements IUpsertDinosaur {
     @IsNotEmpty()
     dinoname!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    email!: string;
-
-    @IsString()
-    @IsNotEmpty()
-    password!: string;
-
-    @IsString()
-    @IsNotEmpty()
-    profilePicture!: string;
 }
 
 export class UpdateDinosaurDto implements IUpdateDinosaur {
     @IsString()
     @IsNotEmpty()
-    username!: string;
+    dinoname!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    email!: string;
 
-    @IsString()
-    @IsNotEmpty()
-    password!: string;
-
-    @IsString()
-    @IsNotEmpty()
-    profilePicture!: string;
 }
