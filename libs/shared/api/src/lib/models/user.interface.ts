@@ -5,13 +5,16 @@ export interface IUser {
     username: string;
     email: string;
     password: string;
-    profilePicture: string;
+    dateOfBirth: Date, 
+    address:  string,
+    occupation: string,
+    isAdmin: boolean,
 
 }
 
 export type ICreateUser = Pick<
     IUser,
-    'username' | 'email' | 'password' | 'profilePicture'
+    'username' | 'email' | 'password' | 'dateOfBirth' | 'address' | 'occupation' | 'isAdmin'
 >;
 export type IUpdateUser = Partial<Omit<IUser, 'id'>>;
 export type IUpsertUser = IUser;

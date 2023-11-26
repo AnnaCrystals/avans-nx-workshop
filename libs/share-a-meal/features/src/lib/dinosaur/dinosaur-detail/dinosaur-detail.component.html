@@ -1,0 +1,44 @@
+<!-- dinosaur-detail.component.html -->
+
+<div *ngIf="(dinosaur$ | async) as dinosaur">
+  <h4>{{ dinosaur.dinoname }}</h4>
+  <h4>{{ dinosaur.species }}</h4>
+  <h4>{{ dinosaur.dateOfBirth }}</h4>
+  <h4>{{ dinosaur.weight }}</h4>
+  <h4>{{ dinosaur.height }}</h4>
+  <h4>{{ dinosaur.dietType }}</h4>
+  
+  <!-- Other dinosaur details -->
+
+  <button
+  *ngIf="dinosaur.id"
+  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+  [routerLink]="['/dinosaur', dinosaur.id, 'edit']"
+>
+  Edit
+</button>
+
+  <button
+    *ngIf="dinosaur.id"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+    [routerLink]="['/dinosaur/new']"
+  >
+    Add
+  </button>
+  
+  <button
+    *ngIf="dinosaur.id"
+    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+    (click)="onDeleteClick()"
+  >
+    Delete
+  </button>
+
+  <button
+  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+  [routerLink]="['/dinosaur']"
+>Back
+</button>
+</div>
+
+

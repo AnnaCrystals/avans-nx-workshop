@@ -1,10 +1,28 @@
 
-<a *ngFor="let user of users" [routerLink]="'/user/' + user.id">
-  <div class="user-item">
-    <div class="user-details">
-      <h2>{{ user.username }}</h2>
-      <p>Email: {{ user.email }}</p>
-      <p>UserId: {{ user.id }}</p>
-    </div>
-  </div>
-</a>
+<div class="container">
+  <h1>User List</h1>
+  
+  <ul>
+    <!-- Use *ngFor to loop through the dinosaurs array -->
+    <ng-container *ngFor="let user of users">
+      <li>
+        <!-- Updated the anchor tag to use [routerLink] -->
+        <a [routerLink]="'/user/' + user.id">
+          <div class="user">
+            <h2>{{ user.username }}</h2>
+            <p>Email: {{ user.email }}</p>
+            <p>UserId: {{ user.id }}</p>
+          </div>
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+
+  
+  <button
+  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+  [routerLink]="['/dashboard']"
+>Back
+</button>
+</div>
+

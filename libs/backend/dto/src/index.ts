@@ -1,3 +1,4 @@
-export * from './lib/meal/meal.dto';
-export * from './lib/backend-features-meal.module';
+export * from './lib/meal.dto';
+export * from './lib/user.dto';
+export * from './lib/dinosaur.dto';
 export * from './lib/api-response.interceptor';

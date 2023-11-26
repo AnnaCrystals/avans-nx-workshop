@@ -1,0 +1,24 @@
+<div class="container mx-auto my-6 text-gray-800 rounded-xl shadow-2xl p-5 border border-gray-300">
+    <h3 class="text-gray-700 text-3xl font-medium">Dashboard</h3>
+  
+    <div class="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-2">
+      <button class="min-w-0 p-4 bg-white rounded-lg shadow-xl border border-gray-300 cursor-pointer hover:bg-gray-100">
+        <a [routerLink]="['/dinosaur']">
+          <h4 class="mb-4 font-semibold text-gray-800">Dinosaur List</h4>
+          <p class="text-gray-600">Go to dinosaur List</p>
+        </a>
+      </button>
+      <button class="min-w-0 p-4 bg-white rounded-lg shadow-xl border border-gray-300 cursor-pointer hover:bg-gray-100">
+        <a [routerLink]="['/user']">
+          <h4 class="mb-4 font-semibold text-gray-800">User List</h4>
+          <p class="text-gray-600">Go to User List</p>
+        </a>
+      </button>
+      <button class="min-w-0 p-4 bg-white rounded-lg shadow-xl border border-gray-300 cursor-pointer hover:bg-gray-100">
+        <a [routerLink]="['/about']">
+          <h4 class="mb-4 font-semibold text-gray-800">About</h4>
+          <p class="text-gray-600">Go to User List</p>
+        </a>
+      </button>
+    </div>
+  </div>

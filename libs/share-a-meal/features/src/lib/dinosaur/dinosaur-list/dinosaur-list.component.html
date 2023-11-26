@@ -1,0 +1,26 @@
+ <div class="container">
+    <h1>Dinosaur List</h1>
+    
+    <ul>
+      <!-- Use *ngFor to loop through the dinosaurs array -->
+      <ng-container *ngFor="let dinosaur of dinosaurs">
+        <li>
+          <!-- Updated the anchor tag to use [routerLink] -->
+          <a [routerLink]="'/dinosaur/' + dinosaur.id">
+            <div class="dinosaur">
+              <h2>{{ dinosaur.dinoname }}</h2>
+              <p>Species: {{ dinosaur.species }}</p>
+              <p>DinoId: {{ dinosaur.id }}</p>
+            </div>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+
+    <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+    [routerLink]="['/dashboard']"
+  >Back
+  </button>
+  </div>
+

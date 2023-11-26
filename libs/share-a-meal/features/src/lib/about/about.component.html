@@ -1,0 +1,51 @@
+
+<div class="container mx-auto my-6 text-gray-800 rounded-xl shadow-2xl p-5 border border-gray-300">
+
+  <img src="jurassic.jpg" >
+  <img src="erd.jpg">
+
+  <h1>Beschrijving:</h1>
+  <p>Het Jurassic Park heeft 4 verschillende entiteiten: de Employee (user), Dinosaur, Area, FeedingSchedule. De casus is afgeleid vanuit de film ‘Jurassic Park’. Hierin verzorgen werknemers (users) dinosaurussen.</p>
+  <ul>
+      <li>De dinosauriërs leven ook in verschillende gebieden op verschillende eilanden.</li>
+      <li>Verschillende soorten dinosauriërs kunnen met elkaar in hetzelfde gebied (Area) wonen.</li>
+      <li>De dinosauriërs moeten natuurlijk ook gevoerd worden, anders worden de werknemers zelf opgegeten.</li>
+      <li>Omdat er verschillende soorten in hetzelfde gebied wonen, kunnen er ook meerdere voedingen (FeedingSchedule) zijn.</li>
+  </ul>
+
+  <h2>Employee:</h2>
+  <p>Heeft de basisinformatie: ID, Name, Email, Password, DateOfBirth, Address.</p>
+  <ul>
+      <li>Occupation. Dit is de taak van de employee binnen het park. Je kan hierbij denken aan een ranger, veterinarian, electrician etc.</li>
+      <li>IsAdmin. Dit kan true or false zijn. Als deze persoon true heeft die admin macht.</li>
+  </ul>
+
+  <h2>Dinosaur:</h2>
+  <p>Heeft de basisinformatie: ID, Name, DateOfBirth, Weight, Height.</p>
+  <ul>
+      <li>Species. Dit kan bijvoorbeeld Ankylosaurus zijn.</li>
+      <li>DietType. Je hebt voornamelijk vleeseters (carnivore), planteneters (herbivore) of alleseters (omnivore).</li>
+  </ul>
+
+  <h2>Area:</h2>
+  <p>Heeft de basisinformatie: ID, SizeM2.</p>
+  <ul>
+      <li>Site. De site verwijst naar op welk eiland ze zitten. Dit kan bijvoorbeeld Site B zijn voor Isla Sorna.</li>
+      <li>Vegetation is de planten die daar zijn. Bijvoorbeeld of het bebost, bestruikt of grasland is.</li>
+      <li>SecurityOn. Dit kan true or false zijn. Als dit true is dan staat de stroom aan op de hekken.</li>
+  </ul>
+
+  <h2>FeedingSchedule:</h2>
+  <p>Heeft de basisinformatie: ID, Description.</p>
+  <ul>
+      <li>DietType. Je hebt voornamelijk vleeseters (carnivore), planteneters (herbivore) of alleseters (omnivore).</li>
+      <li>Time. Time is op welk moment van de dag de voeding gedaan wordt.</li>
+      <li>Frequency. Frequency is hoeveel keer het in een bepaalde tijd wordt gedaan. Bijvoorbeeld 1x per week.</li>
+  </ul>
+
+  <button
+  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+  [routerLink]="['/dashboard']"
+>Back
+</button>
+  </div>

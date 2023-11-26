@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import { IUser } from '@avans-nx-workshop/shared/api';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router'; 
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'avans-nx-workshop-user-list',
@@ -16,31 +17,23 @@ export class UserListComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService, private router: Router) {} 
 
   ngOnInit(): void {
-      this.subscription = this.userService.list().subscribe((results) => {
-          console.log(`results: ${results}`);
-          this.users = results;
-      });
-  }
+    console.log('Before subscribing to the observable');
+    this.subscription = this.userService.list().subscribe((results) => {
+        console.log('Inside the observable subscription');
+        console.log('Users:', results);
+        this.users = results;
+    });
+    console.log('After subscribing to the observable');
+}
+
 
   ngOnDestroy(): void {
       if (this.subscription) this.subscription.unsubscribe();
   }
 
-  // onUserClick(userId: number): void {
-  //   console.log('User clicked!', userId);
-  //   this.router.navigate(['/user', +userId]);
-  // }
-
-
   onUserClick(userId: number): void {
     this.router.navigate(['/user', userId]);
   }
-  
-  // onUserClick(userId: string): void {
-  //   const numericUserId: number = +userId; // Parse the string to a number
-  //   console.log('User clicked!', userId);
-  //   this.router.navigate(['/user', numericUserId]);
-  // }
   
 }
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { IUser } from '@avans-nx-workshop/shared/api';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, filter, take } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'avans-nx-workshop-user-detail',
@@ -13,7 +13,11 @@ import { switchMap } from 'rxjs/operators';
 export class UserDetailComponent implements OnInit {
   user$: Observable<IUser | null> | undefined;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {}
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
 
   ngOnInit(): void {
@@ -25,6 +29,27 @@ export class UserDetailComponent implements OnInit {
     })
   );
 }
+
+  onDeleteClick(): void {
+    if (this.user$) {
+      this.user$
+        .pipe(
+          filter((user): user is IUser => !!user),
+          take(1)
+        )
+        .subscribe((user) => {
+          if (user.id) {
+            console.log(`Deleting user with ID: ${user.id}`);
+  
+            this.userService.deleteUser(user.id);
+           
+            console.log(`User with ID ${user.id} deleted successfully.`);
+            
+            this.router.navigate(['/user-list']);
+          }
+        });
+    }
+  }
 
 }
 
