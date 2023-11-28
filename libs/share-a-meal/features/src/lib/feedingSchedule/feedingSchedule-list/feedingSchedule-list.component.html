@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Feeding Schedules List</h1>
+    
+    <ul>
+      <!-- Use *ngFor to loop through the feeding schedules array -->
+      <ng-container *ngFor="let feedingSchedule of feedingSchedules">
+        <li>
+          <!-- Updated the anchor tag to use [routerLink] -->
+          <a [routerLink]="'/feedingSchedule/' + feedingSchedule.id">
+            <div class="feedingSchedule">
+              <h2>{{ feedingSchedule.description }}</h2>
+              <p>Species: {{ feedingSchedule.dietType }}</p>
+              <p>DinoId: {{ feedingSchedule.id }}</p>
+            </div>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+
+    <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+    [routerLink]="['/dashboard']"
+  >Back
+  </button>
+  </div>
+

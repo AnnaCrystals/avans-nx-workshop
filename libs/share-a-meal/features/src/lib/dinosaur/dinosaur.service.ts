@@ -82,11 +82,11 @@ export class DinosaurService {
     {
       id: '1',
       dinoname: 'Dino Doe',
-species: 'T-rex',
-dateOfBirth: new Date('1995-03-10'),
-weight: 55.5,
-height: 183,
-dietType: 'carnivore'
+      species: 'T-rex',
+      dateOfBirth: new Date('1995-03-10'),
+      weight: 55.5,
+      height: 183,
+      dietType: 'carnivore'
     },
     {
       id: '2',

@@ -17,14 +17,11 @@ export class DinosaurEditComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dinosaurService: DinosaurService, private fb: FormBuilder, private router: Router) {
     this.editForm = this.fb.group({
       'dinoname': [''],
-'species': [''],
-'dateOfBirth': [''],
-'weight': [''],
-'height': [''],
-'dietType': ['']
-
-
-
+      'species': [''],
+      'dateOfBirth': [''],
+      'weight': [''],
+      'height': [''],
+      'dietType': ['']
     });
   }
 

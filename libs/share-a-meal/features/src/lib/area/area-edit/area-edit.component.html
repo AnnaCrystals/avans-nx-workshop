@@ -1,0 +1,66 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="bg-white shadow-xl border border-gray-300 rounded px-8 pt-6 pb-8 mb-4">
+
+    <div class="w-80 h-80 mx-auto">
+      <!-- <img [src]="area.profilePicture" alt="Area Profile" class="w-full h-full object-contain mx-auto"/> -->
+    </div>
+  
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="nameCompound">
+        Name Compound
+      </label>
+      <input id="nameCompound" type="text" formControlName="nameCompound"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+  
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="code">
+        Code
+      </label>
+      <input id="code" type="text" formControlName="code"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="sizeSquareMeter">
+        Size in M2
+      </label>
+      <input id="sizeSquareMeter" type="text" formControlName="sizeSquareMeter"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="site">
+        Site
+      </label>
+      <input id="site" type="text" formControlName="site"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="vegetation">
+        Vegetation
+      </label>
+      <input id="vegetation" type="text" formControlName="vegetation"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="securityOn">
+        Security Fences
+      </label>
+      <input id="securityOn" type="text" formControlName="securityOn"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+  
+    <div class="flex items-center justify-between">
+      <button type="submit"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Submit
+      </button>
+    </div>
+    <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+    [routerLink]="['/area']"
+  >Back
+  </button>
+  </form>

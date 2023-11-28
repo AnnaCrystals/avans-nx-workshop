@@ -1,0 +1,44 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="bg-white shadow-xl border border-gray-300 rounded px-8 pt-6 pb-8 mb-4">
+
+    <div class="w-80 h-80 mx-auto">
+      <!-- <img [src]="feedingSchedule.profilePicture" alt="FeedingSchedule Profile" class="w-full h-full object-contain mx-auto"/> -->
+    </div>
+  
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+        Description
+      </label>
+      <input id="description" type="text" formControlName="description"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+  
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="dietType">
+        Diet Type
+      </label>
+      <input id="dietType" type="text" formControlName="dietType"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="time">
+        Time
+      </label>
+      <input id="time" type="text" formControlName="time"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="frequencyPerWeek">
+        Frequency per week
+      </label>
+      <input id="frequencyPerWeek" type="text" formControlName="frequencyPerWeek"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+    </div>
+
+    <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+    [routerLink]="['/feedingSchedule']"
+  >Back
+  </button>
+  </form>

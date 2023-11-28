@@ -1,0 +1,42 @@
+<!-- area-detail.component.html -->
+
+<div *ngIf="(area$ | async) as area">
+    <h4>{{ area.nameCompound }}</h4>
+    <h4>{{ area.code }}</h4>
+    <h4>{{ area.sizeSquareMeter }}</h4>
+    <h4>{{ area.site }}</h4>
+    <h4>{{ area.vegetation }}</h4>
+    <h4>{{ area.securityOn }}</h4>
+    
+    <!-- Other area details -->
+  
+    <button
+    *ngIf="area.id"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+    [routerLink]="['/area', area.id, 'edit']"
+  >
+    Edit
+  </button>
+  
+    <button
+      *ngIf="area.id"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+      [routerLink]="['/area/new']"
+    >
+      Add
+    </button>
+    
+    <button
+      *ngIf="area.id"
+      class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+      (click)="onDeleteClick()"
+    >
+      Delete
+    </button>
+  
+    <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+    [routerLink]="['/area']"
+  >Back
+  </button>
+  </div>

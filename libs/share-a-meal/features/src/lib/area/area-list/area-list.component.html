@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Area List</h1>
+    
+    <ul>
+      <!-- Use *ngFor to loop through the areas array -->
+      <ng-container *ngFor="let area of areas">
+        <li>
+          <!-- Updated the anchor tag to use [routerLink] -->
+          <a [routerLink]="'/area/' + area.id">
+            <div class="area">
+              <h2>{{ area.nameCompound }}</h2>
+              <p>Species: {{ area.code }}</p>
+              <p>DinoId: {{ area.id }}</p>
+            </div>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+
+    <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+    [routerLink]="['/dashboard']"
+  >Back
+  </button>
+  </div>

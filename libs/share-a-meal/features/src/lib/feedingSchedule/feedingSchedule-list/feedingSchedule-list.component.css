@@ -1,0 +1,47 @@
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #3498db;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .feedingSchedule {
+    margin: 10px 0;
+  }
+
+  h2, p {
+    margin: 5px 0;
+  }
