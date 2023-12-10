@@ -7,7 +7,7 @@ import { FeedingScheduleService } from '../../feedingSchedule/feedingSchedule.se
 @Component({
   selector: 'share-a-meal-feedingSchedule-edit',
   templateUrl: './feedingSchedule-edit.component.html',
-  styles: [],
+  styleUrls: ['./feedingSchedule-edit.component.css'],
 })
 export class FeedingScheduleEditComponent implements OnInit {
   feedingSchedule: IFeedingSchedule | undefined;
@@ -24,7 +24,7 @@ export class FeedingScheduleEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('_id');
     if (!id) {
       this.isNewFeedingSchedule = true;
       return;
@@ -43,14 +43,14 @@ export class FeedingScheduleEditComponent implements OnInit {
   onSubmit() {
     if (this.isNewFeedingSchedule) {
       this.feedingScheduleService.create(this.editForm.value)
-        .subscribe(feedingSchedule => this.router.navigate(['/feedingSchedule', feedingSchedule.id]));
+        .subscribe(feedingSchedule => this.router.navigate(['/feedingSchedule', feedingSchedule._id]));
     } else {
       const updatedFeedingSchedule: IFeedingSchedule = {
         ...this.feedingSchedule,
         ...this.editForm.value
       };
       this.feedingScheduleService.update(updatedFeedingSchedule)
-        .subscribe(() => this.router.navigate(['/feedingSchedule', updatedFeedingSchedule.id]));
+        .subscribe(() => this.router.navigate(['/feedingSchedule', updatedFeedingSchedule._id]));
     }
   }
 }

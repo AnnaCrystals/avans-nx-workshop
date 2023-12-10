@@ -20,15 +20,19 @@ export class UserDetailComponent implements OnInit {
   ) {}
 
 
+
   ngOnInit(): void {
   this.user$ = this.route.params.pipe(
     switchMap((params) => {
       console.log('Route Params:', params); // Log the entire params object
-      const userId = params['id'];
+      const userId = params['_id'];
       return this.userService.read(userId);
     })
   );
+  this.user$.subscribe((data) => console.log('User Data:', data));
 }
+
+
 
   onDeleteClick(): void {
     if (this.user$) {
@@ -38,12 +42,12 @@ export class UserDetailComponent implements OnInit {
           take(1)
         )
         .subscribe((user) => {
-          if (user.id) {
-            console.log(`Deleting user with ID: ${user.id}`);
+          if (user._id) {
+            console.log(`Deleting user with ID: ${user._id}`);
   
-            this.userService.deleteUser(user.id);
+            this.userService.deleteUser(user._id);
            
-            console.log(`User with ID ${user.id} deleted successfully.`);
+            console.log(`User with ID ${user._id} deleted successfully.`);
             
             this.router.navigate(['/user-list']);
           }

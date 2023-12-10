@@ -36,7 +36,7 @@ export class CreateFeedingScheduleDto implements ICreateFeedingSchedule{
 export class UpsertFeedingDto implements IUpsertFeedingSchedule {
     @IsString()
     @IsNotEmpty()
-    id!: string;
+    _id!: string;
 
     @IsString()
     @IsNotEmpty()
@@ -55,7 +55,7 @@ export class UpsertFeedingDto implements IUpsertFeedingSchedule {
     frequencyPerWeek!: number;
 }
 
-export class UpdateFeedingDto implements IUpdateFeedingSchedule {
+export class UpdateFeedingScheduleDto implements IUpdateFeedingSchedule {
     @IsString()
     @IsNotEmpty()
     description!: string;

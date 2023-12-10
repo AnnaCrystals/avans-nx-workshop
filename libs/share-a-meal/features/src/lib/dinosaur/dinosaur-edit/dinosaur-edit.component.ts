@@ -7,7 +7,7 @@ import { DinosaurService } from '../../dinosaur/dinosaur.service';
 @Component({
   selector: 'share-a-meal-dinosaur-edit',
   templateUrl: './dinosaur-edit.component.html',
-  styles: [],
+  styleUrls: ['./dinosaur-edit.component.css'],
 })
 export class DinosaurEditComponent implements OnInit {
   dinosaur: IDinosaur | undefined;
@@ -26,7 +26,7 @@ export class DinosaurEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('_id');
     if (!id) {
       this.isNewDinosaur = true;
       return;
@@ -48,14 +48,21 @@ export class DinosaurEditComponent implements OnInit {
   onSubmit() {
     if (this.isNewDinosaur) {
       this.dinosaurService.create(this.editForm.value)
-        .subscribe(dinosaur => this.router.navigate(['/dinosaur', dinosaur.id]));
+        .subscribe(dinosaur => this.router.navigate(['/dinosaur', dinosaur._id]));
     } else {
       const updatedDinosaur: IDinosaur = {
         ...this.dinosaur,
         ...this.editForm.value
       };
+
+      console.log('Edited dinosaur data:', updatedDinosaur);
+
+
       this.dinosaurService.update(updatedDinosaur)
-        .subscribe(() => this.router.navigate(['/dinosaur', updatedDinosaur.id]));
+        .subscribe(() =>
+         
+        this.router.navigate(['/dinosaur', updatedDinosaur._id]));
     }
   }
 }
+

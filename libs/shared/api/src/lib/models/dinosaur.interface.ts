@@ -1,7 +1,7 @@
 import { Id } from './id.type';
 
 export interface IDinosaur {
-    id: Id;
+    _id: Id;
     dinoname: string;
     species: string;
     dateOfBirth: Date;

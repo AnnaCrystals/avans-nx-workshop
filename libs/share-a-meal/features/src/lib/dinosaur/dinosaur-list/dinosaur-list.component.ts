@@ -10,6 +10,7 @@ import { NgZone } from '@angular/core';
   templateUrl: './dinosaur-list.component.html',
   styleUrls: ['./dinosaur-list.component.css'],
 })
+
 export class DinosaurListComponent implements OnInit, OnDestroy {
   dinosaurs: IDinosaur[] | null = null;
   subscription: Subscription | undefined = undefined;

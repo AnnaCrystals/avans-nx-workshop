@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container pixelated-text">
   <h1>User List</h1>
   
   <ul>
@@ -7,11 +7,11 @@
     <ng-container *ngFor="let user of users">
       <li>
         <!-- Updated the anchor tag to use [routerLink] -->
-        <a [routerLink]="'/user/' + user.id">
+        <a [routerLink]="'/user/' + user._id">
           <div class="user">
             <h2>{{ user.username }}</h2>
             <p>Email: {{ user.email }}</p>
-            <p>UserId: {{ user.id }}</p>
+            <p>UserId: {{ user._id }}</p>
           </div>
         </a>
       </li>
@@ -20,9 +20,10 @@
 
   
   <button
-  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-  [routerLink]="['/dashboard']"
->Back
+  style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+  class="font-bold py-2 px-4 rounded mr-2 pixelated-text"
+  [routerLink]="['/dashboard']">
+  Back
 </button>
 </div>
 

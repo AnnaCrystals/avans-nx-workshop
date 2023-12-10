@@ -55,12 +55,12 @@ const appRoutes: Routes = [
     component: UserEditComponent,
   },
   {
-    path: 'user/:id/edit',
+    path: 'user/:_id/edit',
     pathMatch: 'full',
     component: UserEditComponent,
   },
   {
-    path: 'user/:id',
+    path: 'user/:_id',
     pathMatch: 'full',
     component: UserDetailComponent,
   },
@@ -77,12 +77,12 @@ const appRoutes: Routes = [
     component: DinosaurEditComponent,
   },
   {
-    path: 'dinosaur/:id/edit',
+    path: 'dinosaur/:_id/edit',
     pathMatch: 'full',
     component: DinosaurEditComponent,
   },
   {
-    path: 'dinosaur/:id',
+    path: 'dinosaur/:_id',
     pathMatch: 'full',
     component: DinosaurDetailComponent,
   },
@@ -99,12 +99,12 @@ const appRoutes: Routes = [
     component: AreaEditComponent,
   },
   {
-    path: 'area/:id/edit',
+    path: 'area/:_id/edit',
     pathMatch: 'full',
     component: AreaEditComponent,
   },
   {
-    path: 'area/:id',
+    path: 'area/:_id',
     pathMatch: 'full',
     component: AreaDetailComponent,
   },
@@ -121,12 +121,12 @@ const appRoutes: Routes = [
     component: FeedingScheduleEditComponent,
   },
   {
-    path: 'feedingSchedule/:id/edit',
+    path: 'feedingSchedule/:_id/edit',
     pathMatch: 'full',
     component: FeedingScheduleEditComponent,
   },
   {
-    path: 'feedingSchedule/:id',
+    path: 'feedingSchedule/:_id',
     pathMatch: 'full',
     component: FeedingScheduleDetailComponent,
   },

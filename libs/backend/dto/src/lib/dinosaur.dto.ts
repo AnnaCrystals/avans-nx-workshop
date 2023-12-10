@@ -43,7 +43,7 @@ export class CreateDinosaurDto implements ICreateDinosaur {
 export class UpsertDinosaurDto implements IUpsertDinosaur {
     @IsString()
     @IsNotEmpty()
-    id!: string;
+    _id!: string;
 
     @IsString()
     @IsNotEmpty()

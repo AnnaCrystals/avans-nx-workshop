@@ -45,7 +45,7 @@ export class CreateAreaDto implements ICreateArea {
 export class UpsertAreaDto implements IUpsertArea {
     @IsString()
     @IsNotEmpty()
-    id!: string;
+    _id!: string;
 
     @IsString()
     @IsNotEmpty()

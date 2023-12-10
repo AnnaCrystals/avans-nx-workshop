@@ -1,35 +1,40 @@
 import { NotFoundException } from '@nestjs/common';
-import { IDinosaur } from '../../../../../../shared/api/src/lib/models/dinosaur.interface';
+import { IDinosaur, IUpdateDinosaur } from '@avans-nx-workshop/shared/api';
 import { BehaviorSubject } from 'rxjs';
-import { Logger } from '@nestjs/common';
-import { Injectable } from "@angular/core";
+import { Logger, Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Dinosaur } from './schemas/dinosaur.schema';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class DinosaurService {
     TAG = 'DinosaurService';
 
+    constructor(@InjectModel(Dinosaur.name) private dinosaurModel: Model<IDinosaur>) {}
     private dinosaurs$ = new BehaviorSubject<IDinosaur[]>([
         {
-            id: '0',
+            _id: '0',
             dinoname: 'Dino Joe',
-            email: 'johnjoe@avans.nl',
-            password: '1234',
-            profilePicture: ''
+            species: 'T-rex',
+            dateOfBirth: new Date('1995-03-10'),
+             weight: 55.5,
+            height: 183,
+            dietType: 'carnivore'
         },
     ]);
 
-    getAll(): IDinosaur[] {
+    async getAll(): Promise<IDinosaur[]> {
         Logger.log('getAll', this.TAG);
-        return this.dinosaurs$.value;
+        return await this.dinosaurModel.find().exec();
     }
 
-    getOne(id: string): IDinosaur {
+    async getOne(id: string): Promise<IDinosaur> {
         Logger.log(`getOne(${id})`, this.TAG);
-        const dinosaur = this.dinosaurs$.value.find((td) => td.id === id);
-        if (!dinosaur) {
+        const area = await this.dinosaurModel.findOne({_id: id}).exec();
+        if (!area) {
             throw new NotFoundException(`Dinosaur could not be found!`);
         }
-        return dinosaur;
+        return area;
     }
 
     /**
@@ -37,17 +42,45 @@ export class DinosaurService {
      * return signature - we still want to respond with the complete
      * object
      */
-    create(dinosaur: Pick<IDinosaur, 'dinoname' | 'email'>): IDinosaur {
+    async create(dinosaur: Pick<IDinosaur, 'dinoname' | 'species'>): Promise<IDinosaur> {
         Logger.log('create', this.TAG);
         const current = this.dinosaurs$.value;
         // Use the incoming data, a randomized ID, and a default value of `false` to create the new to-do
         const newDinosaur: IDinosaur = {
             ...dinosaur,
-            id: `dinosaur-${Math.floor(Math.random() * 10000)}`,
-            password: '1234',
-            profilePicture:'',
+            _id: `dinosaur-${Math.floor(Math.random() * 10000)}`,
+            dateOfBirth: new Date('1995-03-10'),
+            weight: 55.5,
+            height: 183,
+            dietType: 'carnivore'
         };
         this.dinosaurs$.next([...current, newDinosaur]);
         return newDinosaur;
+    }
+
+    async update(id: string, dinosaur: IUpdateDinosaur): Promise<IDinosaur> {
+        const current = this.dinosaurs$.getValue();
+        const index = current.findIndex((b) => b._id === id);
+        if (index < 0) {
+          throw new NotFoundException(`Dinosaur with id ${id} not found`);
+        }
+        const updatedDinosaur: IDinosaur = {
+          ...current[index],
+          ...dinosaur,
+        };
+        current[index] = updatedDinosaur;
+        this.dinosaurs$.next(current);
+        return updatedDinosaur;
+      }
+
+      
+    async delete(id: string): Promise<void> {
+        const current = this.dinosaurs$.getValue();
+        const index = current.findIndex((b) => b._id === id);
+        if (index < 0) {
+        throw new NotFoundException(`Dinosaur with id ${id} not found`);
+        }
+        current.splice(index, 1);
+        this.dinosaurs$.next(current);
     }
 }

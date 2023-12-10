@@ -22,11 +22,14 @@ export class DinosaurDetailComponent implements OnInit {
   ngOnInit(): void {
     this.dinosaur$ = this.route.params.pipe(
       switchMap((params) => {
-        const dinosaurId = params['id'];
+        const dinosaurId = params['_id'];
         return this.dinosaurService.read(dinosaurId);
       })
     );
+  
+    this.dinosaur$.subscribe((data) => console.log('Dinosaur Data:', data));
   }
+  
 
   onDeleteClick(): void {
     if (this.dinosaur$) {
@@ -36,12 +39,12 @@ export class DinosaurDetailComponent implements OnInit {
           take(1)
         )
         .subscribe((dinosaur) => {
-          if (dinosaur.id) {
-            console.log(`Deleting dinosaur with ID: ${dinosaur.id}`);
+          if (dinosaur._id) {
+            console.log(`Deleting dinosaur with ID: ${dinosaur._id}`);
   
-            this.dinosaurService.deleteDinosaur(dinosaur.id);
+            this.dinosaurService.deleteDinosaur(dinosaur._id);
            
-            console.log(`Dinosaur with ID ${dinosaur.id} deleted successfully.`);
+            console.log(`Dinosaur with ID ${dinosaur._id} deleted successfully.`);
             
             this.router.navigate(['/dinosaur-list']);
           }

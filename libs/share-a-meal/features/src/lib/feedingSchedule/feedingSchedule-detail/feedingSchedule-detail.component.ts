@@ -22,10 +22,11 @@ export class FeedingScheduleDetailComponent implements OnInit {
   ngOnInit(): void {
     this.feedingSchedule$ = this.route.params.pipe(
       switchMap((params) => {
-        const feedingScheduleId = params['id'];
+        const feedingScheduleId = params['_id'];
         return this.feedingScheduleService.read(feedingScheduleId);
       })
     );
+    this.feedingSchedule$.subscribe((data) => console.log('FeedingSchedule Data:', data));
   }
 
   onDeleteClick(): void {
@@ -36,12 +37,12 @@ export class FeedingScheduleDetailComponent implements OnInit {
           take(1)
         )
         .subscribe((feedingSchedule) => {
-          if (feedingSchedule.id) {
-            console.log(`Deleting feedingSchedule with ID: ${feedingSchedule.id}`);
+          if (feedingSchedule._id) {
+            console.log(`Deleting feedingSchedule with ID: ${feedingSchedule._id}`);
   
-            this.feedingScheduleService.deleteFeedingSchedule(feedingSchedule.id);
+            this.feedingScheduleService.deleteFeedingSchedule(feedingSchedule._id);
            
-            console.log(`FeedingSchedule with ID ${feedingSchedule.id} deleted successfully.`);
+            console.log(`FeedingSchedule with ID ${feedingSchedule._id} deleted successfully.`);
             
             this.router.navigate(['/feedingSchedule-list']);
           }

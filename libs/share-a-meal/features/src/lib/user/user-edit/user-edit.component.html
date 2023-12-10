@@ -1,74 +1,66 @@
-<form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="bg-white shadow-xl border border-gray-300 rounded px-8 pt-6 pb-8 mb-4">
+<div class="container pixelated-text">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="bg-red-500 shadow-xl rounded p-8 mb-4 pixelated-text">
 
-    <div class="w-80 h-80 mx-auto">
-      <!-- <img [src]="user.profilePicture" alt="User Profile" class="w-full h-full object-contain mx-auto"/> -->
-    </div>
-  
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
         Username
       </label>
-      <input id="username" type="text" formControlName="username"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+      <input id="username" type="text" formControlName="username" class="input-field"/>
     </div>
-  
+
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
         Email
       </label>
-      <input id="email" type="text" formControlName="email"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+      <input id="email" type="text" formControlName="email" class="input-field"/>
     </div>
   
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
         Password
       </label>
-      <input id="password" type="password" formControlName="password"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+      <input id="password" type="password" formControlName="password" class="input-field"/>
     </div>
   
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="dateOfBirth">
-        DateOfBirth
+        Date of Birth
       </label>
-      <input id="dateOfBirth" type="dateOfBirth" formControlName="dateOfBirth"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+      <input id="dateOfBirth" type="date" formControlName="dateOfBirth" class="input-field"/>
     </div>
 
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
         Address
       </label>
-      <input id="address" type="address" formControlName="address"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+      <input id="address" type="address" formControlName="address" class="input-field"/>
     </div>
 
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="occupation">
-        occupation
+        Occupation
       </label>
-      <input id="occupation" type="occupation" formControlName="occupation"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+      <input id="occupation" type="occupation" formControlName="occupation" class="input-field"/>
     </div>
 
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="isAdmin">
         IsAdmin
       </label>
-      <input id="isAdmin" type="isAdmin" formControlName="isAdmin"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+      <input id="isAdmin" type="isAdmin" formControlName="isAdmin" class="input-field"/>
     </div>
   
     <div class="flex items-center justify-between">
-      <button type="submit"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      <button type="submit" style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+      class="font-bold py-2 px-4 rounded custom-margin pixelated-text">
         Submit
       </button>
+      <button style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+      class="font-bold py-2 px-4 rounded custom-margin pixelated-text" [routerLink]="['/user']">
+        Back
+      </button>
     </div>
-    <button
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-    [routerLink]="['/user']"
-  >Back
-  </button>
   </form>
+</div>
+
+

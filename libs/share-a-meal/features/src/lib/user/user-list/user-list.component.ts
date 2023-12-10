@@ -26,7 +26,6 @@ export class UserListComponent implements OnInit, OnDestroy {
     console.log('After subscribing to the observable');
 }
 
-
   ngOnDestroy(): void {
       if (this.subscription) this.subscription.unsubscribe();
   }

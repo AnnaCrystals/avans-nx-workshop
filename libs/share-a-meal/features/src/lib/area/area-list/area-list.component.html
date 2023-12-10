@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pixelated-text">
     <h1>Area List</h1>
     
     <ul>
@@ -6,11 +6,11 @@
       <ng-container *ngFor="let area of areas">
         <li>
           <!-- Updated the anchor tag to use [routerLink] -->
-          <a [routerLink]="'/area/' + area.id">
+          <a [routerLink]="'/area/' + area._id">
             <div class="area">
               <h2>{{ area.nameCompound }}</h2>
               <p>Species: {{ area.code }}</p>
-              <p>DinoId: {{ area.id }}</p>
+              <p>DinoId: {{ area._id }}</p>
             </div>
           </a>
         </li>
@@ -18,8 +18,9 @@
     </ul>
 
     <button
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-    [routerLink]="['/dashboard']"
-  >Back
-  </button>
+  style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+  class="font-bold py-2 px-4 rounded mr-2 pixelated-text"
+  [routerLink]="['/dashboard']">
+  Back
+</button>
   </div>

@@ -1,7 +1,7 @@
 import { Id } from './id.type';
 
 export interface IArea {
-    id: Id;
+    _id: Id;
     nameCompound: string;
     code: string;
     sizeSquareMeter: number;

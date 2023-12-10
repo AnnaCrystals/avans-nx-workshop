@@ -1,32 +1,38 @@
 import { NotFoundException } from '@nestjs/common';
-import { IUser } from '../../../../../../shared/api/src/lib/models/user.interface';
+import { IUser, IUpdateUser } from '@avans-nx-workshop/shared/api';
 import { BehaviorSubject } from 'rxjs';
-import { Logger } from '@nestjs/common';
-import { Injectable } from "@angular/core";
+import { Logger, Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { User } from './schemas/user.schema';
+import { Model } from 'mongoose';
 
 
 @Injectable()
 export class UserService {
     TAG = 'UserService';
 
+    constructor(@InjectModel(User.name) private userModel: Model<IUser>) {}
     private users$ = new BehaviorSubject<IUser[]>([
         {
-            id: '0',
+            _id: '0',
             username: 'Dino Joe',
             email: 'johnjoe@avans.nl',
             password: '1234',
-            profilePicture: ''
+            dateOfBirth: new Date('1990-01-01'),
+            address: '123 Main Street',
+            occupation: 'Software Developer',
+            isAdmin: false,
         },
     ]);
 
-    getAll(): IUser[] {
+     async getAll(): Promise<IUser[]> {
         Logger.log('getAll', this.TAG);
-        return this.users$.value;
+        return await this.userModel.find().exec();
     }
 
-    getOne(id: string): IUser {
+    async getOne(id: string): Promise<IUser> {
         Logger.log(`getOne(${id})`, this.TAG);
-        const user = this.users$.value.find((td) => td.id === id);
+        const user = await this.userModel.findOne({_id: id}).exec();
         if (!user) {
             throw new NotFoundException(`User could not be found!`);
         }
@@ -38,17 +44,47 @@ export class UserService {
      * return signature - we still want to respond with the complete
      * object
      */
-    create(user: Pick<IUser, 'username' | 'email'>): IUser {
+    async create(user: Pick<IUser, 'username' | 'email'>): Promise<IUser> {
         Logger.log('create', this.TAG);
         const current = this.users$.value;
         // Use the incoming data, a randomized ID, and a default value of `false` to create the new to-do
         const newUser: IUser = {
             ...user,
-            id: `user-${Math.floor(Math.random() * 10000)}`,
+            _id: `user-${Math.floor(Math.random() * 10000)}`,
             password: '1234',
-            profilePicture:'',
+            dateOfBirth: new Date('1990-01-01'),
+            address: '123 Main Street',
+            occupation: 'Software Developer',
+            isAdmin: false,
         };
         this.users$.next([...current, newUser]);
         return newUser;
     }
+
+    async update(id: string, user: IUpdateUser): Promise<IUser> {
+        const current = this.users$.getValue();
+        const index = current.findIndex((b) => b._id === id);
+        if (index < 0) {
+          throw new NotFoundException(`User with id ${id} not found`);
+        }
+        const updatedUser: IUser = {
+          ...current[index],
+          ...user,
+        };
+        current[index] = updatedUser;
+        this.users$.next(current);
+        return updatedUser;
+      }
+
+      
+    async delete(id: string): Promise<void> {
+        const current = this.users$.getValue();
+        const index = current.findIndex((b) => b._id === id);
+        if (index < 0) {
+        throw new NotFoundException(`User with id ${id} not found`);
+        }
+        current.splice(index, 1);
+        this.users$.next(current);
+    }
 }
+

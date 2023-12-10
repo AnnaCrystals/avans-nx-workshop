@@ -1,5 +1,5 @@
 
-<div class="container mx-auto my-6 text-gray-800 rounded-xl shadow-2xl p-5 border border-gray-300">
+<div class="container pixelated-text">
 
     <div class="mb-6">
         <img [src]="'/assets/erd.jpg'" alt="ERD" class="w-1">
@@ -14,21 +14,21 @@
       <li>Omdat er verschillende soorten in hetzelfde gebied wonen, kunnen er ook meerdere voedingen (FeedingSchedule) zijn.</li>
   </ul>
 
-  <h2>Employee:</h2>
+  <h1>Employee:</h1>
   <p>Heeft de basisinformatie: ID, Name, Email, Password, DateOfBirth, Address.</p>
   <ul>
       <li>Occupation. Dit is de taak van de employee binnen het park. Je kan hierbij denken aan een ranger, veterinarian, electrician etc.</li>
       <li>IsAdmin. Dit kan true or false zijn. Als deze persoon true heeft die admin macht.</li>
   </ul>
 
-  <h2>Dinosaur:</h2>
+  <h1>Dinosaur:</h1>
   <p>Heeft de basisinformatie: ID, Name, DateOfBirth, Weight, Height.</p>
   <ul>
       <li>Species. Dit kan bijvoorbeeld Ankylosaurus zijn.</li>
       <li>DietType. Je hebt voornamelijk vleeseters (carnivore), planteneters (herbivore) of alleseters (omnivore).</li>
   </ul>
 
-  <h2>Area:</h2>
+  <h1>Area:</h1>
   <p>Heeft de basisinformatie: ID, SizeM2.</p>
   <ul>
       <li>Site. De site verwijst naar op welk eiland ze zitten. Dit kan bijvoorbeeld Site B zijn voor Isla Sorna.</li>
@@ -36,7 +36,7 @@
       <li>SecurityOn. Dit kan true or false zijn. Als dit true is dan staat de stroom aan op de hekken.</li>
   </ul>
 
-  <h2>FeedingSchedule:</h2>
+  <h1>FeedingSchedule:</h1>
   <p>Heeft de basisinformatie: ID, Description.</p>
   <ul>
       <li>DietType. Je hebt voornamelijk vleeseters (carnivore), planteneters (herbivore) of alleseters (omnivore).</li>
@@ -45,7 +45,8 @@
   </ul>
 
   <button
-  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+  style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+  class="font-bold py-2 px-4 rounded mr-2 pixelated-text"
   [routerLink]="['/dashboard']"
 >Back
 </button>

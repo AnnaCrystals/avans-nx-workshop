@@ -7,7 +7,7 @@ import { UserService } from '../../user/user.service';
 @Component({
   selector: 'share-a-meal-user-edit',
   templateUrl: './user-edit.component.html',
-  styles: [],
+  styleUrls: ['./user-edit.component.css'],
 })
 export class UserEditComponent implements OnInit {
   user: IUser | undefined;
@@ -20,14 +20,14 @@ export class UserEditComponent implements OnInit {
       'email': [''],
       'password': [''],
       'dateOfBirth' : [''],
-'address' : [''],
-'occupation': [''],
-'isAdmin' : ['']
+      'address' : [''],
+      'occupation': [''],
+      'isAdmin' : ['']
     });
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('_id');
     if (!id) {
       this.isNewUser = true;
       return;
@@ -38,10 +38,10 @@ export class UserEditComponent implements OnInit {
         'username': user.username,
         'email': user.email,
         'password': user.password,
-'dateOfBirth' : user.dateOfBirth,
-'address' : user.address,
-'occupation': user.occupation,
-'isAdmin' : user.isAdmin
+        'dateOfBirth' : user.dateOfBirth,
+        'address' : user.address,
+        'occupation': user.occupation,
+        'isAdmin' : user.isAdmin
 
 
       });
@@ -51,7 +51,7 @@ export class UserEditComponent implements OnInit {
   onSubmit() {
     if (this.isNewUser) {
       this.userService.create(this.editForm.value)
-        .subscribe(user => this.router.navigate(['/user', user.id]));
+        .subscribe(user => this.router.navigate(['/user', user._id]));
     } else {
       const updatedUser: IUser = {
         ...this.user,
@@ -64,7 +64,7 @@ export class UserEditComponent implements OnInit {
       this.userService.update(updatedUser)
         .subscribe(() =>
          
-        this.router.navigate(['/user', updatedUser.id]));
+        this.router.navigate(['/user', updatedUser._id]));
     }
   }
 }

@@ -7,7 +7,8 @@ import { AreaService } from '../../area/area.service';
 @Component({
   selector: 'share-a-meal-area-edit',
   templateUrl: './area-edit.component.html',
-  styles: [],
+  styleUrls: ['./area-edit.component.css'],
+
 })
 export class AreaEditComponent implements OnInit {
   area: IArea | undefined;
@@ -26,7 +27,7 @@ export class AreaEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('_id');
     if (!id) {
       this.isNewArea = true;
       return;
@@ -47,14 +48,14 @@ export class AreaEditComponent implements OnInit {
   onSubmit() {
     if (this.isNewArea) {
       this.areaService.create(this.editForm.value)
-        .subscribe(area => this.router.navigate(['/area', area.id]));
+        .subscribe(area => this.router.navigate(['/area', area._id]));
     } else {
       const updatedArea: IArea = {
         ...this.area,
         ...this.editForm.value
       };
       this.areaService.update(updatedArea)
-        .subscribe(() => this.router.navigate(['/area', updatedArea.id]));
+        .subscribe(() => this.router.navigate(['/area', updatedArea._id]));
     }
   }
 }

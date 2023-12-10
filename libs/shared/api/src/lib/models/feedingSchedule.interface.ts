@@ -1,7 +1,7 @@
 import { Id } from './id.type';
 
 export interface IFeedingSchedule {
-    id: Id;
+    _id: Id;
     description: string,
     dietType: string,
     time: string,

@@ -2,14 +2,14 @@
     .container {
       max-width: 800px;
       margin: 20px auto;
-      background-color: #ffffff;
+      background-color: #000000;
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
     }
 
     h1 {
-      color: #333;
+      color: #ffff00;
     }
 
     ul {
@@ -31,11 +31,19 @@
 
     a {
       text-decoration: none;
-      color: #3498db;
+      background-color: #e50914;
+      color: #ffff00; /* Change to red link color */
+      border: 2px solid #ffff00; /* Add a yellow border */
+      padding: 8px; /* Adjust padding for better button appearance */
+      border-radius: 4px; /* Add border-radius for a rounded look */
+      border-width: 3px;
+      display: block; /* Make the link a block-level element */
+      width: 100%; /* Make the link take the full width of the container */
+      transition: background-color 0.3s ease; /* Add a smooth transition effect */
     }
 
     a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     .dinosaur {
@@ -44,4 +52,14 @@
 
     h2, p {
       margin: 5px 0;
+    }
+
+    .pixelated-text {
+      font-family: 'Courier New', monospace;
+      font-size: 24px;
+      color: #ffff00;
+    }
+    
+    .jurassic-bg-red {
+      background-color: #e50914; /* Red background */
     }

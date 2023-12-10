@@ -1,46 +1,57 @@
 <!-- user-detail.component.html -->
 
-<div *ngIf="(user$ | async) as user">
-  <h4>{{ user.username }}</h4>
-  <h4>{{ user.email }}</h4>
-  <h4>{{ user.password }}</h4>
-  <h4>{{ user.dateOfBirth }}</h4>
-  <h4>{{ user.address }}</h4>
-  <h4>{{ user.occupation }}</h4>
-  <h4>{{ user.isAdmin }}</h4>
-  
+<div class="container pixelated-text">
+  <div *ngIf="(user$ | async) as user">
+    <h4>{{ user.username }}</h4>
+    <h4>{{ user.email }}</h4>
+    <h4>{{ user.password }}</h4>
+    <h4>{{ user.dateOfBirth }}</h4>
+    <h4>{{ user.address }}</h4>
+    <h4>{{ user.occupation }}</h4>
+    <h4>{{ user.isAdmin }}</h4>
 
-  <!-- Other user details -->
+    <!-- Other user details -->
 
-  <button
-    *ngIf="user.id"
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-    [routerLink]="['/user', user.id, 'edit']"
-  >
-    Edit
-  </button>
+    <div class="flex mt-4">
 
-  <button
-    *ngIf="user.id"
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-    [routerLink]="['/user/new']"
-  >
-    Add
-  </button>
+      <button
+        *ngIf="user._id"
+        style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+        class="font-bold py-2 px-4 rounded custom-margin pixelated-text"
+        [routerLink]="['/user', user._id, 'edit']"
+      >
+        Edit
+      </button>
 
-  <button
-    *ngIf="user.id"
-    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-    (click)="onDeleteClick()"
-  >
-    Delete
-  </button>
-  <button
-  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-  [routerLink]="['/user']"
->Back
-</button>
+      <button
+        *ngIf="user._id"
+        style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+        class="font-bold py-2 px-4 rounded custom-margin pixelated-text"
+        [routerLink]="['/user/new']"
+      >
+        Add
+      </button>
+
+      <button
+        *ngIf="user._id"
+        style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+        class="font-bold py-2 px-4 rounded custom-margin pixelated-text"
+        (click)="onDeleteClick()"
+      >
+        Delete
+      </button>
+
+      <button
+        style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+        class="font-bold py-2 px-4 rounded custom-margin pixelated-text"
+        [routerLink]="['/user']"
+      >
+        Back
+      </button>
+    </div>
+  </div>
 </div>
+
 
 
   

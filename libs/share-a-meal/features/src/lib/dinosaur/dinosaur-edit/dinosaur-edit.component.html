@@ -1,66 +1,57 @@
-<form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="bg-white shadow-xl border border-gray-300 rounded px-8 pt-6 pb-8 mb-4">
-
-    <div class="w-80 h-80 mx-auto">
-      <!-- <img [src]="dinosaur.profilePicture" alt="Dinosaur Profile" class="w-full h-full object-contain mx-auto"/> -->
-    </div>
+<div class="container pixelated-text">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="bg-red-500 shadow-xl rounded p-8 mb-4 pixelated-text">
   
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="dinoname">
-        Dinoname
-      </label>
-      <input id="dinoname" type="text" formControlName="dinoname"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
-    </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="dinoname">
+          Dinoname
+        </label>
+        <input id="dinoname" type="text" formControlName="dinoname" class="input-field"/>
+      </div>
   
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="species">
-        Species
-      </label>
-      <input id="species" type="text" formControlName="species"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="dateofBirth">
-        DateofBirth
-      </label>
-      <input id="dateofBirth" type="text" formControlName="dateofBirth"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="weight">
-        Weight
-      </label>
-      <input id="weight" type="text" formControlName="weight"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="height">
-        Height
-      </label>
-      <input id="height" type="text" formControlName="height"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="dietType">
-        DietType
-      </label>
-      <input id="dietType" type="text" formControlName="dietType"
-             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
-    </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="species">
+          Species
+        </label>
+        <input id="species" type="text" formControlName="species" class="input-field"/>
+      </div>
+    
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="dateOfBirth">
+          Date Of Birth
+        </label>
+        <input id="dateOfBirth" type="date" formControlName="dateOfBirth" class="input-field"/>
+      </div>
+    
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="weight">
+          Weight
+        </label>
+        <input id="weight" type="text" formControlName="weight" class="input-field"/>
+      </div>
   
-    <div class="flex items-center justify-between">
-      <button type="submit"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-        Submit
-      </button>
-    </div>
-    <button
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-    [routerLink]="['/dinosaur']"
-  >Back
-  </button>
-  </form>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="height">
+          Height
+        </label>
+        <input id="height" type="text" formControlName="height" class="input-field"/>
+      </div>
+  
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="dietType">
+          Diet type
+        </label>
+        <input id="dietType" type="text" formControlName="dietType" class="input-field"/>
+      </div>
+  
+      <div class="flex items-center justify-between">
+        <button type="submit" style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+        class="font-bold py-2 px-4 rounded custom-margin pixelated-text">
+          Submit
+        </button>
+        <button style="border: 2px solid #ffeb3b; background-color: #ff0000;"
+        class="font-bold py-2 px-4 rounded custom-margin pixelated-text" [routerLink]="['/dinosaur']">
+          Back
+        </button>
+      </div>
+    </form>
+  </div>

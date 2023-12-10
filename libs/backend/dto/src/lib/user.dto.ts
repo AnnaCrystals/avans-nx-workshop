@@ -49,7 +49,7 @@ export class CreateUserDto implements ICreateUser {
 export class UpsertUserDto implements IUpsertUser {
     @IsString()
     @IsNotEmpty()
-    id!: string;
+    _id!: string;
 
     @IsString()
     @IsNotEmpty()

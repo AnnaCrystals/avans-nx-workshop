@@ -22,7 +22,7 @@ export class AreaDetailComponent implements OnInit {
   ngOnInit(): void {
     this.area$ = this.route.params.pipe(
       switchMap((params) => {
-        const areaId = params['id'];
+        const areaId = params['_id'];
         return this.areaService.read(areaId);
       })
     );
@@ -36,12 +36,12 @@ export class AreaDetailComponent implements OnInit {
           take(1)
         )
         .subscribe((area) => {
-          if (area.id) {
-            console.log(`Deleting area with ID: ${area.id}`);
+          if (area._id) {
+            console.log(`Deleting area with ID: ${area._id}`);
   
-            this.areaService.deleteArea(area.id);
+            this.areaService.deleteArea(area._id);
            
-            console.log(`Area with ID ${area.id} deleted successfully.`);
+            console.log(`Area with ID ${area._id} deleted successfully.`);
             
             this.router.navigate(['/area-list']);
           }

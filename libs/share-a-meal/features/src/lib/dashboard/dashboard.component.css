@@ -1,115 +1,148 @@
 .container {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .my-6 {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .text-gray-800 {
-    color: #2d3748;
-  }
-  
-  .rounded-xl {
-    border-radius: 1rem;
-  }
-  
-  .shadow-2xl {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  }
-  
-  .p-5 {
-    padding: 1.25rem;
-  }
-  
-  .border {
-    border-width: 1px;
-  }
-  
-  .border-gray-300 {
-    border-color: #e2e8f0;
-  }
-  
-  .text-gray-700 {
-    color: #4a5568;
-  }
-  
-  .text-3xl {
-    font-size: 1.875rem;
-  }
-  
-  .font-medium {
-    font-weight: 500;
-  }
-  
-  .mt-6 {
-    margin-top: 1.5rem;
-  }
-  
-  .grid {
-    display: grid;
-  }
-  
-  .gap-6 {
-    gap: 1.5rem;
-  }
-  
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  
-  .xl\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  
-  .min-w-0 {
-    min-width: 0;
-  }
-  
-  .p-4 {
-    padding: 1rem;
-  }
-  
-  .bg-white {
-    background-color: #ffffff;
-  }
-  
-  .rounded-lg {
-    border-radius: 0.75rem;
-  }
-  
-  .shadow-xl {
-    box-shadow: 0 10px 20px -6px rgba(0, 0, 0, 0.25);
-  }
-  
-  .cursor-pointer {
-    cursor: pointer;
-  }
-  
-  .hover\:bg-gray-100:hover {
-    background-color: #f7fafc;
-  }
-  
-  .router-link {
-    text-decoration: none;
-  }
-  
-  .mb-4 {
-    margin-bottom: 1rem;
-  }
-  
-  .font-semibold {
-    font-weight: 600;
-  }
-  
-  .text-gray-600 {
-    color: #718096;
-  }
-  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.text-gray-800 {
+  color: #2d3748; /* Dark gray for text */
+}
+
+.rounded-xl {
+  border-radius: 1rem;
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-gray-300 {
+  border-color: #ffd100; /* Light blue-gray for borders */
+}
+
+.text-gray-700 {
+  color: #4a5568; /* Blue-gray for secondary text */
+}
+
+.text-3xl {
+  font-size: 2.25rem; /* Slightly larger font size */
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.md\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.xl\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.rounded-lg {
+  border-radius: 0.75rem;
+}
+
+.shadow-xl {
+  box-shadow: 0 10px 20px -6px rgba(0, 0, 0, 0.25);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover\:bg-gray-100:hover {
+  background-color: #ff7300; /* Light blue-gray on hover */
+}
+
+.router-link {
+  text-decoration: none;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.font-semibold {
+  font-weight: 100;
+}
+
+.text-gray-600 {
+  color: #718096; /* Light blue-gray for subtle elements */
+}
+
+/* Jurassic Park colors */
+.jurassic-black {
+  color: #000000; /* Black */
+}
+
+.jurassic-yellow {
+  color: #ffd100; /* Yellow */
+}
+
+.jurassic-red {
+  color: #e50914; /* Red */
+}
+
+.jurassic-bg-black {
+  background-color: #000000; /* Black background */
+}
+
+.jurassic-bg-yellow {
+  background-color: #ffd100; /* Yellow background */
+}
+
+.jurassic-bg-red {
+  background-color: #e50914; /* Red background */
+}
+
+.pixelated-text {
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+}
+
+.button-link {
+  text-decoration: none;
+}

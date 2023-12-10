@@ -1,7 +1,7 @@
 import { Id } from './id.type';
 
 export interface IUser {
-    id: Id;
+    _id: Id;
     username: string;
     email: string;
     password: string;
